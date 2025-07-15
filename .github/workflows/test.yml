@@ -1,0 +1,12 @@
+# Basic test workflow
+name: Vagrant Validation
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Vagrantfile
+        run: |
+          sudo apt-get install -y vagrant
+          vagrant validate
